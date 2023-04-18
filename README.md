@@ -32,6 +32,17 @@ Porém, devido ao tempo, decidi fazer uma aplicação web normalmente e simular 
 - Já que a aplicação não será mobile, ao meu ver seria mais interessante, no mínimo, utilizar o conceito de mobile-first,
 porém, como não é algo que eu estou tão acostumado iria me custar algum tempo, então preferi deixar de lado.
 
+## Conclusão
+
+Alguns pontos que não consegui entregar:
+- Leitura do QRCode, a leitura do QRCode está mockada e gerando dados aleatórios para criar um novo serviço
+- Responsividade
+- Tela de detalhe do serviço completa, ficaram faltando algumas formatações e exibir melhor os dados,
+assim como a implementação do botão de finalizar serviço
+- Algumas validações e formatações gerais, não tive tempo de revisar as formatações de todos os dados, assim como validações de entrada na tela de login
+
+De forma geral, em alguns pontos com certeza fiquei devendo em relação a uma aplicação front-end, já que não é meu forte, mas dei meu melhor dentro do tempo que tive. Mas de qualquer forma, pretendo melhorar esse projeto e implementar outras funcionalidade pois gostei de trabalhar nele.
+
 ## TODO list:
 
 - [x] Pages
@@ -39,5 +50,5 @@ porém, como não é algo que eu estou tão acostumado iria me custar algum temp
   - [x] Main page
   - [x] New service page
   - [x] Services list page
-  - [-] Service detail page
+  - [x] Service detail page
 - [ ] Deploy
