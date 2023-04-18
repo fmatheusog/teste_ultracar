@@ -37,7 +37,7 @@ porém, como não é algo que eu estou tão acostumado iria me custar algum temp
 - [ ] Pages
   - [x] Login page
   - [x] Main page
-  - [ ] New service page
+  - [x] New service page
   - [ ] Services list page
   - [ ] Service detail page
 - [ ] Deploy

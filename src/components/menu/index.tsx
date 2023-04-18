@@ -15,7 +15,7 @@ const Menu: FunctionComponent = () => {
   }
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-full">
       <div className="bg-sky-500 border-r-2 border-gray-200 flex-grow">
         <div className="flex justify-between items-center py-4 px-6">
           Ultracar

@@ -3,7 +3,6 @@ export interface Service {
   name: string;
   description: string;
   status: string;
-  has_parts?: boolean;
   parts: string[];
   price: number;
   start_date: Date;

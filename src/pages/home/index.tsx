@@ -20,7 +20,7 @@ const Home: FunctionComponent = () => {
   }, [])
 
   return (
-    <div className="flex h-full">
+    <div className="flex min-h-screen flex-grow">
       <div className="w-64">
         <Menu />
       </div>
@@ -39,7 +39,7 @@ const Home: FunctionComponent = () => {
                   <h2 className="text-xl font-bold mb-2">{service.name}</h2>
                   <p className="text-gray-600 mb-4"><span className="font-bold">ID:</span> {service.id}</p>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  { service.has_parts ? (
+                  { service.parts.length > 0 ? (
                     <p className="text-green-600 font-bold mb-4">Contém peças</p>
                     ) : (
                       <p className="text-red-600 font-bold mb-4">Não contém peças</p>
