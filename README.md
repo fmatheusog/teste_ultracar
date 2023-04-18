@@ -35,8 +35,8 @@ porém, como não é algo que eu estou tão acostumado iria me custar algum temp
 ## TODO list:
 
 - [ ] Pages
-  - [ ] Login page
-  - [ ] Main page
+  - [x] Login page
+  - [x] Main page
   - [ ] New service page
   - [ ] Services list page
   - [ ] Service detail page
