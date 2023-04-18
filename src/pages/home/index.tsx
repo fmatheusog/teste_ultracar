@@ -1,27 +1,23 @@
+'use server';
+
 import Menu from "@/components/menu";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { Service } from "@/interfaces/service.interface";
 
 const Home: FunctionComponent = () => {
-  const services = [
-    {
-      id: 1,
-      title: "Serviço 1",
-      description: "Descrição do serviço 1",
-      status: "em andamento",
-    },
-    {
-      id: 2,
-      title: "Serviço 2",
-      description: "Descrição do serviço 2",
-      status: "em andamento",
-    },
-    {
-      id: 3,
-      title: "Serviço 3",
-      description: "Descrição do serviço 3",
-      status: "em andamento",
-    },
-  ];
+  const router = useRouter();
+  const [serviceList, setServiceList] = useState<Service[]>([]);
+
+  const fetchData = async () => {
+    const response = await fetch("/api/services");
+    const data = await response.json();
+    setServiceList(data);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   return (
     <div className="flex h-full">
@@ -31,16 +27,28 @@ const Home: FunctionComponent = () => {
       <div className="w-full m-8">
         <h1 className="text-3xl font-bold mb-5">Serviços em Andamento</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300"
-            >
-              <h2 className="text-xl font-bold mb-2">{service.title}</h2>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <p className="text-green-500 font-bold">{service.status}</p>
-            </div>
-          ))}
+          { serviceList ? (
+            serviceList
+              .filter((service) => service.status == 'in-progress')
+              .map((service) => (
+                <div
+                  key={service.id}
+                  onClick={() => router.push(`/services/${service.id}`)}
+                  className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                >
+                  <h2 className="text-xl font-bold mb-2">{service.name}</h2>
+                  <p className="text-gray-600 mb-4"><span className="font-bold">ID:</span> {service.id}</p>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  { service.has_parts ? (
+                    <p className="text-green-600 font-bold mb-4">Contém peças</p>
+                    ) : (
+                      <p className="text-red-600 font-bold mb-4">Não contém peças</p>
+                      )}
+                  <p className="mb-4">Status: <span className="font-bold text-green-500">{service.status}</span></p>
+                  <p className="text-gray-600 mb-4">R$ {service.price}</p>
+                </div>
+              ))
+            ) : null }
         </div>
       </div>
     </div>

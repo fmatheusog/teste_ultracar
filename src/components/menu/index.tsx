@@ -23,10 +23,15 @@ const Menu: FunctionComponent = () => {
         </div>
         <ul className="flex flex-col py-4">
           <li className="bg-blue-500 px-4 py-2 rounded-md text-white m-1 cursor-pointer">
-            <button className="w-full">Home</button>
+            <button className="w-full" onClick={() => router.push('/home')}>Home</button>
           </li>
           <li className="bg-blue-500 px-4 py-2 rounded-md text-white m-1 cursor-pointer">
-            <button className="w-full">Novo serviço</button>
+            <button 
+              className="w-full"
+              onClick={() => router.push('/services/create')}
+            >
+              Novo serviço
+            </button>
           </li>
           <li className="bg-blue-500 px-4 py-2 rounded-md text-white m-1 cursor-pointer">
             <button className="w-full">Lista de serviços</button>
