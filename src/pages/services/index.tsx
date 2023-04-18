@@ -5,7 +5,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Service } from "@/interfaces/service.interface";
 
-const Home: FunctionComponent = () => {
+const Services: FunctionComponent = () => {
   const router = useRouter();
   const [serviceList, setServiceList] = useState<Service[]>([]);
 
@@ -25,11 +25,10 @@ const Home: FunctionComponent = () => {
         <Menu />
       </div>
       <div className="w-full m-8">
-        <h1 className="text-3xl font-bold mb-5">Serviços em Andamento</h1>
+        <h1 className="text-3xl font-bold mb-5">Todos os serviços</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           { serviceList ? (
             serviceList
-              .filter((service) => service.status == 'in-progress')
               .map((service) => (
                 <div
                   key={service.id}
@@ -56,4 +55,4 @@ const Home: FunctionComponent = () => {
   );
 };
 
-export default Home;
+export default Services;

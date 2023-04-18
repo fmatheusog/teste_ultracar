@@ -17,9 +17,8 @@ const Menu: FunctionComponent = () => {
   return (
     <div className="flex flex-col h-full">
       <div className="bg-sky-500 border-r-2 border-gray-200 flex-grow">
-        <div className="flex justify-between items-center py-4 px-6">
-          Ultracar
-          {/* <Image src="logo.png" alt="Logo da empresa" className="h-8" /> */}
+        <div className="flex justify-center items-center py-4 px-6">
+          <span className="text-white text-lg font-bold">Ultracar</span>
         </div>
         <ul className="flex flex-col py-4">
           <li className="bg-blue-500 px-4 py-2 rounded-md text-white m-1 cursor-pointer">
@@ -34,7 +33,12 @@ const Menu: FunctionComponent = () => {
             </button>
           </li>
           <li className="bg-blue-500 px-4 py-2 rounded-md text-white m-1 cursor-pointer">
-            <button className="w-full">Lista de serviços</button>
+            <button
+              className="w-full"
+              onClick={() => router.push('/services')}
+            >
+              Lista de serviços
+            </button>
           </li>
           <li className="bg-red-500 px-4 py-2 rounded-md text-white m-1 cursor-pointer">
             <button className="w-full" onClick={ logout }>Sair</button>
